@@ -1,0 +1,21 @@
+<%= bootstrap_form_for(this) do |e| %>
+  <% form_fields(this.class).each do |f| %>
+    <% if f.match(/price/) %>
+      <%= e.number_field f.to_sym, :step => 0.5 %>
+    <% elsif f.match(/date/) %>
+      <%= e.date_field f.to_sym %>
+    <% elsif f.include?('is_') %>
+      <%= e.check_box f.to_sym %>
+    <% elsif f.match(/notes/) or f.match(/description/) %>
+      <%= e.text_area f.to_sym %>
+    <% elsif f.include?('_id') %>
+      <%= e.select(f.to_sym, constantize_table(sanitize(f)).all.collect{|a|[a.to_s,a.id]}) %>
+    <% else %>
+      <%= e.text_field f.to_sym %>
+    <% end %>
+  <% end %>
+  <%= e.submit %>
+<% end %>
+
+<%= form_fields(this.class).inspect %>
+

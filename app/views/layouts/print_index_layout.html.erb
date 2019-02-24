@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= this %></title>
+	<%= wicked_pdf_stylesheet_link_tag "application.css" -%>
+</head>
+<body>
+	<h2 class='title'><%= this %></h2>
+	<%= render partial: 'index', locals:{this:this} %>
+</body>
+</html>
