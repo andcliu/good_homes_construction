@@ -1,7 +1,15 @@
 <h2 class='title'><%= this %> <span class='small-font'>(<%= object_count(this) %>)</span></h2>
 <p>
-	<%=link_to "Add New #{this}", new_polymorphic_path(this), :class => 'btn btn-outline-primary btn-sm' %>
+	<%=link_to "Add #{this}", new_polymorphic_path(this), :class => 'btn btn-outline-primary btn-sm' %>
+	<% if this.relations.present? %>
+		<% this.relations.each do |e| %>
+			<%= link_to "Add #{sanitize(e)}", new_polymorphic_path(constantize_table(e)), :class=>'btn btn-outline-primary btn-sm' %>
+		<% end %>
+	<% end %>
 	<%= link_to "Print PDF", "/#{this.to_s.downcase.pluralize}/print_index_pdf", :class => 'btn btn-outline-primary btn-sm',target: :_blank %>
 </p>
 
-<%= render partial: 'index', locals:{this:this} %>
+<%= render partial: 'visual',locals:{this:this} %>
+<%= render partial: 'table', locals:{this:this, this_one:nil} %>
+
+

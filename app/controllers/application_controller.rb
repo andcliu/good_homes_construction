@@ -36,12 +36,7 @@ class ApplicationController < ActionController::Base
 
   def create
     authorize this
-    creation = this.create(priv_params)
-    if creation.valid?
-      flash[:notice]="#{creation.to_s} was successfully created."
-    else 
-      flash[:error]="Error creating #{this}. Please make sure all fields were filled out."
-    end
+    this.create(priv_params)
     redirect_to polymorphic_path(this)
   end
 

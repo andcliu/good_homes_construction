@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190223222153) do
+ActiveRecord::Schema.define(version: 20190225003039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,36 @@ ActiveRecord::Schema.define(version: 20190223222153) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.integer "zipcode"
+    t.string "phone"
+    t.string "phone2"
+    t.string "email"
+    t.date "onboard_date"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employee_informations", force: :cascade do |t|
+    t.date "dob"
+    t.string "address"
+    t.string "city"
+    t.integer "zipcode"
+    t.string "phone"
+    t.string "phone2"
+    t.string "email"
+    t.float "current_wage"
+    t.float "previous_wage"
+    t.bigint "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_informations_on_employee_id"
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -55,5 +85,30 @@ ActiveRecord::Schema.define(version: 20190223222153) do
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
+  create_table "work_days", force: :cascade do |t|
+    t.date "work_date"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "work_schedules", force: :cascade do |t|
+    t.float "hours"
+    t.text "work_description"
+    t.text "notes"
+    t.bigint "employee_id"
+    t.bigint "client_id"
+    t.bigint "work_day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_work_schedules_on_client_id"
+    t.index ["employee_id"], name: "index_work_schedules_on_employee_id"
+    t.index ["work_day_id"], name: "index_work_schedules_on_work_day_id"
+  end
+
+  add_foreign_key "employee_informations", "employees"
   add_foreign_key "items", "categories"
+  add_foreign_key "work_schedules", "clients"
+  add_foreign_key "work_schedules", "employees"
+  add_foreign_key "work_schedules", "work_days"
 end

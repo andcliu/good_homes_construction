@@ -15,7 +15,7 @@ module ApplicationHelper
 	end
 
 	def business_name 
-		"biz name"
+		"Good Home"
 	end
 	def business_header_name 
 		"<span class='color_red'>2</span>Cheng's".html_safe
@@ -53,7 +53,7 @@ module ApplicationHelper
 	end
 
 	def not_tables_in_admin
-		%w'admins ar_internal_metadata schema_migrations employee_infos wages work_schedules'
+		%w'admins ar_internal_metadata schema_migrations employee_informations work_schedules items'
 	end
 
 	def db_tables
@@ -76,9 +76,10 @@ module ApplicationHelper
 				number_to_currency(e)
 			elsif e.is_a? String 
 				e.humanize
-			
 			elsif e.is_a? Date 
 				Date.parse(e.to_s).strftime("%m/%d/%Y")
+			else 
+				return e
 			end
 		end
 	end
@@ -113,5 +114,8 @@ module ApplicationHelper
 		Date.parse(e.to_s).strftime("%m/%d") 
 	end
 
+	def number_fields 
+		%w'phone zipcode'
+	end
 
 end

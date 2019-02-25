@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hours: 1.5
+  work_description: MyText
+  notes: MyText
+  employee: one
+  client: one
+  work_day: one
+
+two:
+  hours: 1.5
+  work_description: MyText
+  notes: MyText
+  employee: two
+  client: two
+  work_day: two

@@ -1,5 +1,6 @@
 /*
- *= require rails_bootstrap_forms
+	*= require simple_calendar
+	*= require rails_bootstrap_forms
 */
 
 @import "bootstrap";
@@ -7,4 +8,34 @@
 
 .title{
 	font-family: 'Staatliches', cursive;
+}
+
+#simpleCalendar{
+	.calendar-heading{
+		text-align:center;
+		.calendar-title{
+			font-weight:600;
+			font-size:2rem;
+			font-family: 'Staatliches', cursive;
+		}
+	}
+	.simple-calendar{
+		tbody{
+			tr{
+				height:7rem;
+			}
+		}
+
+	}
+}
+
+.bold-underline{
+	font-weight:600;
+	text-decoration: underline;
+}
+.smaller-font{
+	font-size:12px;
+}
+.italics{
+	font-style: italic;	
 }

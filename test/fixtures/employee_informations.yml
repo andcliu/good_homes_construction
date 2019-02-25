@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dob: 2019-02-24
+  address: MyString
+  city: MyString
+  zipcode: 1
+  phone: MyString
+  phone2: MyString
+  email: MyString
+  current_wage: 1.5
+  previous_wage: 1.5
+  employee: one
+
+two:
+  dob: 2019-02-24
+  address: MyString
+  city: MyString
+  zipcode: 1
+  phone: MyString
+  phone2: MyString
+  email: MyString
+  current_wage: 1.5
+  previous_wage: 1.5
+  employee: two

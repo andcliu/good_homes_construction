@@ -1,0 +1,2 @@
+class EmployeeInformationPolicy < ApplicationPolicy
+end

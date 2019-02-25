@@ -1,7 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
 	include ApplicationHelper
 	scope :order_desc, -> {
-	  order('updated_at DESC')
+	  order('updated_at ASC')
 	}
 
   self.abstract_class = true
@@ -14,10 +14,14 @@ class ApplicationRecord < ActiveRecord::Base
 	end
 
 
-
+	def relations 
+		%w''
+	end
 	def self.relations 
 		if self.reflect_on_all_associations(:has_many).present? 
 			return self.reflect_on_all_associations(:has_many).collect{|e|e.plural_name}
+		elsif self.reflect_on_all_associations(:has_one).present? 
+			return self.reflect_on_all_associations(:has_one).collect{|e|e.plural_name}
 		end
 	end
 

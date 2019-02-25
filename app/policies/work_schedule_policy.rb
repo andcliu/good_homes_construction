@@ -1,0 +1,2 @@
+class WorkSchedulePolicy < ApplicationPolicy
+end

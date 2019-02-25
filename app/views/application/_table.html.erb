@@ -1,0 +1,74 @@
+
+<% this.admin_view.present? ? table_col=this.admin_view : table_col=this.list_view %>
+<table class="table table-sm">
+  <thead class='thead-light'>
+    <tr>
+      <% table_col.each do |head| %>
+        <th class='' scope='col'><%=sanitize(head)%></th>
+      <% end %>
+      <th class='action_tr ' scope='col'>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if this_one.nil? %>
+      <% this.all.order_desc.each do |e| %>
+        <tr>
+          <% table_col.each do |f| %>
+            <td><%= f=='hours' ? e.send(f) : sanitize(e.send(f)) %></td>
+          <% end %>
+          <td>
+            <p>
+              <%= link_to 'Edit', edit_polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
+              <%= link_to 'Remove', polymorphic_path(e), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+              <% if e.relations.present? %>
+                <% e.relations.each do |r| %>
+                  <%= link_to "Show #{sanitize(r)}", polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
+                <% end %>
+              <% end %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    <% elsif this_one.respond_to?('collect') %>
+      <h3 class='title'><%= this_one.first.class %></h3>
+      <% this_one.each do |one| %>
+        <tr>
+          <% table_col.each do |f| %>
+            <td><%= f=='hours' ? one.send(f) : sanitize(one.send(f)) %></td>
+          <% end %>
+          <td>
+            <p>
+              <%= link_to 'Edit', edit_polymorphic_path(one), :class => 'btn btn-primary btn-sm' %>
+              <%= link_to 'Remove', polymorphic_path(one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <h3 class='title'><%= this_one.class %></h3>
+      <tr>
+        <% table_col.each do |f| %>
+          <td><%= f=='hours' ? this_one.send(f) : sanitize(this_one.send(f)) %></td>
+        <% end %>
+        <td>
+          <p>
+            <%= link_to 'Edit', edit_polymorphic_path(this_one), :class => 'btn btn-primary btn-sm' %>
+            <%= link_to 'Remove', polymorphic_path(this_one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<br>
+
+<% unless this_one.nil? %>
+  <% if this_one.relations.present? %>
+    <% this_one.relations.each do |f| %>
+      <% if this_one.try(f.to_sym).present? %>
+        <%= render partial: 'table', locals:{this:constantize_table(f), this_one:this_one.send(f.to_sym)} %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

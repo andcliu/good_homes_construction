@@ -1,5 +1,6 @@
 class Employee < ApplicationRecord
-
+	has_one :employee_information, dependent: :destroy
+	has_many :work_schedules, dependent: :destroy
 	def self.admin_view 
 		%w'name hire_date termination_date manager status notes' 
 	end
@@ -19,6 +20,10 @@ class Employee < ApplicationRecord
 
 	def status 
 		self.termination_date.blank? ? 'Active' : 'Not Active'
+	end
+
+	def relations 
+		%w'employee_information'
 	end
 
 end
