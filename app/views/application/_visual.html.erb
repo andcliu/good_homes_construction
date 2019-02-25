@@ -30,10 +30,10 @@
 			  	<% c.push(e[0]) %>
 			  <% end %>
 			  <% c.uniq.each do |t| %>
-			  	<span class='bold-underline'><%= Client.find_name t %></span><br>
+			  	<span class=''><%= link_to "#{Client.find_name t}", client_path(t), :class=>'remove-links bold-underline' %></span><br>
 			  	<% obj.first.collection.each do |e| %>
 			  		<% if e[0]==t %>
-			  			<span class='smaller-font italics'><%= e[1] %></span><br>
+			  			<span class=''><%= link_to "#{e[1]}", employee_path(e[2]), :class=>'remove-links smaller-font italics' %></span><br>
 			  		<% end %>
 			  	<% end %>
 		  	<% end %>

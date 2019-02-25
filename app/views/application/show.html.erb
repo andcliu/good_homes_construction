@@ -1,2 +1,4 @@
-<h2 class='title'><%= sanitize(this.find(params[:id]).to_s) %></h2>
-<%= render partial: 'table', locals:{this:this, this_one: this.find(params[:id])} %>
+<div class='container'>
+	<h2 class='title'><%= sanitize(this.find(params[:id]).to_s) %></h2>
+	<%= render partial: 'table', locals:{this:this, this_one: this.find(params[:id])} %>
+</div>

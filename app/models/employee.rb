@@ -22,6 +22,9 @@ class Employee < ApplicationRecord
 		self.termination_date.blank? ? 'Active' : 'Not Active'
 	end
 
+	def self.relations 
+		%w'employee_information'
+	end
 	def relations 
 		%w'employee_information'
 	end

@@ -14,7 +14,7 @@ class WorkDay < ApplicationRecord
 	end
 	
 	def collection 
-		work_schedules.collect{|e|[e.client_id,e.to_s]}
+		work_schedules.collect{|e|[e.client_id,e.to_s,e.employee_id]}
 	end
 
 

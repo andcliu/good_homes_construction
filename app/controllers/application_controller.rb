@@ -58,7 +58,6 @@ class ApplicationController < ActionController::Base
     render :pdf => filename,
       :layout => template.include?('index') ? 'print_index_layout' : 'print',
       :template => template,
-      :orientation => 'Landscape',
       :page_size => 'Letter',
       :image_quality => 100
       # :margin => {:top => 10, :bottom => 10, :left => 0, :right => 10}

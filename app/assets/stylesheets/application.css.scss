@@ -5,7 +5,11 @@
 
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Staatliches');
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*{
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+}
 .title{
 	font-family: 'Staatliches', cursive;
 }
@@ -38,4 +42,7 @@
 }
 .italics{
 	font-style: italic;	
+}
+.remove-links{
+	color:#000;
 }
