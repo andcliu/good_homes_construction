@@ -2,16 +2,17 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   alias_method :current_user, :current_admin
-
   include ApplicationHelper
-
+  # add_breadcrumb "Home", :root_path
+  # add_breadcrumb "Report", :admins_path
+  
   rescue_from Pundit::NotAuthorizedError, with: :admin_not_authorized
-
 
   def index
     unless params[:controller]=='root'
       authorize this
     end
+    # add_breadcrumb "#{this}", polymorphic_path(this)
   end
   
   def new

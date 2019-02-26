@@ -21,9 +21,10 @@
               <%= link_to 'Edit', edit_polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
               <%= link_to 'Remove', polymorphic_path(e), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
               <% if e.relations.present? %>
-                <% e.relations.each do |r| %>
-                  <%= link_to "Show #{sanitize(r)}", polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
-                <% end %>
+              
+                  
+                <%= link_to "Show #{sanitize(e.relations.first)}", polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
+              
               <% end %>
             </p>
           </td>

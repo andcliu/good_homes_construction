@@ -25,8 +25,9 @@ class Employee < ApplicationRecord
 	def self.relations 
 		%w'employee_information'
 	end
+	
 	def relations 
-		%w'employee_information'
+		%w'employee_information work_schedules'
 	end
 
 end

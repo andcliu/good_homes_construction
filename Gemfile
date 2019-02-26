@@ -30,6 +30,7 @@ gem 'geocoder'
 gem 'pundit'
 gem 'devise'
 gem "simple_calendar", "~> 2.0"
+gem "breadcrumbs_on_rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -8,26 +8,14 @@ class WorkSchedule < ApplicationRecord
   end
 
   def self.admin_view 
-  	%w'hours work_description notes employee_name client_name work_date'
-  end
-
-  def employee_name
-  	self.employee.name
-  end
-
-  def client_name 
-  	self.client.name
-  end
-
-  def work_date 
-  	self.work_day.to_s
+  	%w'hours work_description notes employee client work_day'
   end
 
 	def to_s 
-		employee_name
+		employee
 	end
 
   def employee_client
-    "<span class='well'><i>#{client_name}</i><br>#{employee_name}</span>".html_safe
+    "<span class='well'><i>#{client}</i><br>#{employee}</span>".html_safe
   end
 end
