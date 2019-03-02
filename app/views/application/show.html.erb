@@ -1,4 +1,12 @@
 <div class='container'>
 	<h2 class='title'><%= sanitize(this.find(params[:id]).to_s) %></h2>
+	<p>
+		<% if this.find(params[:id]).relations.present? %>
+			<% this.find(params[:id]).relations.each do |e| %>
+				<%e=e.singularize%>
+				<%= link_to "Add #{sanitize(e)}", new_polymorphic_path(e), :class => 'btn btn-outline-primary btn-sm' %>
+			<% end %>
+		<% end %>
+	</p>
 	<%= render partial: 'table', locals:{this:this, this_one: this.find(params[:id])} %>
 </div>

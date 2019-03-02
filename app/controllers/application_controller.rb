@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   # add_breadcrumb "Home", :root_path
   # add_breadcrumb "Report", :admins_path
-  
   rescue_from Pundit::NotAuthorizedError, with: :admin_not_authorized
 
   def index

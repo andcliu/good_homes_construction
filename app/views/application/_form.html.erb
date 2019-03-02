@@ -1,3 +1,4 @@
+
 <%= bootstrap_form_for(this) do |e| %>
   <% form_fields(this.class).each do |f| %>
     <% if f.match(/price/) or f.include?('wage') %>
@@ -11,7 +12,12 @@
     <% elsif f.match(/notes/) or f.match(/description/) %>
       <%= e.text_area f.to_sym %>
     <% elsif f.include?('_id') %>
-      <%= e.select(f.to_sym, form_collection(f)) %>
+        <% if f.to_s.include?('employee_id') %>
+          <%= e.select(f.to_sym, form_collection(f), {}, {:multiple => true}) %>
+        <% else %>
+          <%= e.select(f.to_sym, form_collection(f)) %>
+        <% end %>
+
     <% else %>
       <%= e.text_field f.to_sym %>
     <% end %>

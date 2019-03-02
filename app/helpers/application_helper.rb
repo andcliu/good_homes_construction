@@ -53,7 +53,7 @@ module ApplicationHelper
 	end
 
 	def not_tables_in_admin
-		%w'admins ar_internal_metadata schema_migrations employee_informations work_schedules items'
+		%w'admins ar_internal_metadata schema_migrations employee_informations work_schedules items milestones'
 	end
 
 	def db_tables
@@ -90,7 +90,12 @@ module ApplicationHelper
 	end
 
 	def form_collection e
-		g=e.to_s.gsub('_id','')
+		if e.to_s.include? '_ids'
+			g=e.to_s.gsub('_ids','')
+		elsif e.to_s.include? '_id'
+			g=e.to_s.gsub('_id','')
+		end
+
 		if g.to_s.include?('_')
 			g=g.camelcase.singularize.constantize
 		else 

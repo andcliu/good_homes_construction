@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2019-02-26
+  completion_date: 2019-02-26
+  task_description: MyText
+  notes: MyText
+  employee_ids: MyText
+  project: one
+
+two:
+  start_date: 2019-02-26
+  completion_date: 2019-02-26
+  task_description: MyText
+  notes: MyText
+  employee_ids: MyText
+  project: two

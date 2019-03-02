@@ -1,0 +1,3 @@
+class MilestonesController < ApplicationController
+
+end
