@@ -1,6 +1,6 @@
 
 <% this.admin_view.present? ? table_col=this.admin_view : table_col=this.list_view %>
-<table class="table table-sm">
+<table class="table table-sm tablesorter" id="genTable">
   <thead class='thead-light'>
     <tr>
       <% table_col.each do |head| %>
@@ -59,7 +59,6 @@
         </td>
       </tr>
     <% end %>
-
   </tbody>
 </table>
 <br>
@@ -73,3 +72,4 @@
     <% end %>
   <% end %>
 <% end %>
+

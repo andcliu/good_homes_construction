@@ -1,4 +1,4 @@
-<div class='container'>
+
 	<h2 class='title'><%= this %> <span class='small-font'>(<%= object_count(this) %>)</span></h2>
 	<p>
 		<%=link_to "Add #{this}", new_polymorphic_path(this), :class => 'btn btn-outline-primary btn-sm' %>
@@ -12,6 +12,6 @@
 
 	<%= render partial: 'visual',locals:{this:this} %>
 	<%= render partial: 'table', locals:{this:this, this_one:nil} %>
-</div>
+
 
 

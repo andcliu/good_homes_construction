@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_name: MyString
+  estimate: 1.5
+  work_description: MyText
+  is_approved?: false
+  is_cancelled?: false
+  date_approved: 2019-03-03
+  date_cancelled: 2019-03-03
+  client: one
+
+two:
+  project_name: MyString
+  estimate: 1.5
+  work_description: MyText
+  is_approved?: false
+  is_cancelled?: false
+  date_approved: 2019-03-03
+  date_cancelled: 2019-03-03
+  client: two

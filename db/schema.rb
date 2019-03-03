@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190227163015) do
+ActiveRecord::Schema.define(version: 20190303184225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,20 @@ ActiveRecord::Schema.define(version: 20190227163015) do
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.string "project_name"
+    t.float "estimate"
+    t.text "work_description"
+    t.boolean "is_approved"
+    t.boolean "is_cancelled"
+    t.date "date_approved"
+    t.date "date_cancelled"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_quotes_on_client_id"
+  end
+
   create_table "work_days", force: :cascade do |t|
     t.date "work_date"
     t.text "notes"
@@ -136,6 +150,7 @@ ActiveRecord::Schema.define(version: 20190227163015) do
   add_foreign_key "employee_informations", "employees"
   add_foreign_key "items", "categories"
   add_foreign_key "milestones", "projects"
+  add_foreign_key "quotes", "clients"
   add_foreign_key "work_schedules", "clients"
   add_foreign_key "work_schedules", "employees"
   add_foreign_key "work_schedules", "work_days"

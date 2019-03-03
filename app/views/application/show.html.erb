@@ -1,4 +1,4 @@
-<div class='container'>
+
 	<h2 class='title'><%= sanitize(this.find(params[:id]).to_s) %></h2>
 	<p>
 		<% if this.find(params[:id]).relations.present? %>
@@ -9,4 +9,3 @@
 		<% end %>
 	</p>
 	<%= render partial: 'table', locals:{this:this, this_one: this.find(params[:id])} %>
-</div>

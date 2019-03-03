@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
 	has_many :projects
+	has_many :quotes
 	def self.admin_view 
 		%w'name address city zipcode phone phone2 email onboard_date notes' 
 	end
@@ -9,6 +10,6 @@ class Client < ApplicationRecord
 	end
 
 	def relations
-		%w'projects'
+		%w'projects quotes'
 	end
 end

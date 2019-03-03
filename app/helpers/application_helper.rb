@@ -53,7 +53,7 @@ module ApplicationHelper
 	end
 
 	def not_tables_in_admin
-		%w'admins ar_internal_metadata schema_migrations employee_informations work_schedules items milestones'
+		%w'admins ar_internal_metadata schema_migrations employee_informations work_schedules items milestones quotes'
 	end
 
 	def db_tables

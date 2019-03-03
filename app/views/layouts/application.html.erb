@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -29,9 +30,9 @@
 			    </ul>
 			  </div>
 			</nav>
-			<div class='container'>
-			  <%= render_breadcrumbs %>
-			 </div>
+
+
+			 
 			<span class="notice"><%= notice %></span>
 			<span class="alert"><%= alert %></span>
 	    <%= yield %>
@@ -39,3 +40,14 @@
   </body>
 
 </html>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(function() {
+      $("#genTable").tablesorter();
+    });
+    $(function() {
+      $("#genTable").tablesorter({ sortList: [[0,0], [1,0]] });
+    });
+  })
+
+</script>
