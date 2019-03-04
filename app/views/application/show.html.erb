@@ -4,7 +4,7 @@
 		<% if this.find(params[:id]).relations.present? %>
 			<% this.find(params[:id]).relations.each do |e| %>
 				<%e=e.singularize%>
-				<%= link_to "Add #{sanitize(e)}", new_polymorphic_path(e), :class => 'btn btn-outline-primary btn-sm' %>
+				<%= link_to "#{sanitize(e)}#{material_icon.add.md_18}".html_safe, new_polymorphic_path(e), :class => 'btn btn-outline-primary btn-sm' %>
 			<% end %>
 		<% end %>
 	</p>

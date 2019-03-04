@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount_due: 1.5
+  due_date: 2019-03-03
+  notes: MyText
+  is_paid: false
+  paid_date: 2019-03-03
+  client: one
+  milestone: one
+  project: one
+
+two:
+  amount_due: 1.5
+  due_date: 2019-03-03
+  notes: MyText
+  is_paid: false
+  paid_date: 2019-03-03
+  client: two
+  milestone: two
+  project: two

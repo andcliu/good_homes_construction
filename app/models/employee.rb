@@ -27,9 +27,9 @@ class Employee < ApplicationRecord
 		%w'employee_information'
 	end
 
-	def milestones 
-		milestones.select{|e|e.employee_id==self.id}.collect{|e|e.list_view}
-	end
+	# def milestones 
+	# 	milestones.select{|e|e.employee_id==self.id}.collect{|e|e.list_view}
+	# end
 
 	def relations 
 		%w'employee_information work_schedules milestones'

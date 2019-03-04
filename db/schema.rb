@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190303184225) do
+ActiveRecord::Schema.define(version: 20190304005321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,22 @@ ActiveRecord::Schema.define(version: 20190303184225) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.float "amount_due"
+    t.date "due_date"
+    t.text "notes"
+    t.boolean "is_paid"
+    t.date "paid_date"
+    t.bigint "client_id"
+    t.bigint "milestone_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invoices_on_client_id"
+    t.index ["milestone_id"], name: "index_invoices_on_milestone_id"
+    t.index ["project_id"], name: "index_invoices_on_project_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -90,10 +106,11 @@ ActiveRecord::Schema.define(version: 20190303184225) do
     t.date "completion_date"
     t.text "task_description"
     t.text "notes"
-    t.text "employee_id", default: [], array: true
+    t.text "employee_ids", default: [], array: true
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["project_id"], name: "index_milestones_on_project_id"
   end
 
@@ -148,6 +165,9 @@ ActiveRecord::Schema.define(version: 20190303184225) do
   end
 
   add_foreign_key "employee_informations", "employees"
+  add_foreign_key "invoices", "clients"
+  add_foreign_key "invoices", "milestones"
+  add_foreign_key "invoices", "projects"
   add_foreign_key "items", "categories"
   add_foreign_key "milestones", "projects"
   add_foreign_key "quotes", "clients"

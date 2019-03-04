@@ -6,7 +6,7 @@
       <% table_col.each do |head| %>
         <th class='' scope='col'><%=sanitize(head)%></th>
       <% end %>
-      <th class='action_tr ' scope='col'>Action</th>
+      <th class='action_tr ' scope='col'></th>
     </tr>
   </thead>
   <tbody>
@@ -18,12 +18,10 @@
           <% end %>
           <td>
             <p>
-              <%= link_to 'Edit', edit_polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
-              <%= link_to 'Remove', polymorphic_path(e), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+              <%= link_to "#{material_icon.update.md_18}".html_safe, edit_polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
+              <%= link_to "#{material_icon.remove.md_18}".html_safe, polymorphic_path(e), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
               <% if e.relations.present? %>
-              
-                  
-                <%= link_to "Show #{sanitize(e.relations.first)}", polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
+                <%= link_to "#{material_icon.zoom_in.md_18}".html_safe, polymorphic_path(e), :class => 'btn btn-primary btn-sm' %>
               
               <% end %>
             </p>
@@ -39,8 +37,8 @@
           <% end %>
           <td>
             <p>
-              <%= link_to 'Edit', edit_polymorphic_path(one), :class => 'btn btn-primary btn-sm' %>
-              <%= link_to 'Remove', polymorphic_path(one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+              <%= link_to "#{material_icon.update.md_18}".html_safe, edit_polymorphic_path(one), :class => 'btn btn-primary btn-sm' %>
+              <%= link_to "#{material_icon.remove.md_18}".html_safe, polymorphic_path(one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
             </p>
           </td>
         </tr>
@@ -53,8 +51,8 @@
         <% end %>
         <td>
           <p>
-            <%= link_to 'Edit', edit_polymorphic_path(this_one), :class => 'btn btn-primary btn-sm' %>
-            <%= link_to 'Remove', polymorphic_path(this_one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
+            <%= link_to "#{material_icon.update.md_18}".html_safe, edit_polymorphic_path(this_one), :class => 'btn btn-primary btn-sm' %>
+            <%= link_to "#{material_icon.remove.md_18}".html_safe, polymorphic_path(this_one), {:method => :delete, :class => 'btn btn-danger btn-sm'} %>
           </p>
         </td>
       </tr>

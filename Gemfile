@@ -27,6 +27,7 @@ gem 'wkhtmltopdf-binary'
 gem 'bootstrap', '~> 4.3.1'
 gem "bootstrap_form", ">= 4.1.0"
 gem 'geocoder'
+gem 'material_icons'
 gem 'pundit'
 gem 'devise'
 gem "simple_calendar", "~> 2.0"

@@ -54,12 +54,17 @@ class ApplicationController < ActionController::Base
     pdf_render "#{this}", "application/print_index"
   end
 
+  def print_pdf 
+    pdf_render "#{this}", "application/print_pdf"
+  end
+
   def pdf_render filename, template
     render :pdf => filename,
-      :layout => template.include?('index') ? 'print_index_layout' : 'print',
+      :layout => template.include?('index') ? 'print_index_layout' : 'print_pdf',
       :template => template,
       :page_size => 'Letter',
-      :image_quality => 100
+      :image_quality => 100,
+      :dpi => 300
       # :margin => {:top => 10, :bottom => 10, :left => 0, :right => 10}
   end
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   																		:sessions => "sessions"
   																	}
  	root 'root#index'
+  get '/:controller/:id/print_pdf', :action => :print_pdf
   get '/:controller/print_index_pdf', :action => :print_index_pdf
   temp=ActiveRecord::Base.connection.tables
   temp.each do |e|
