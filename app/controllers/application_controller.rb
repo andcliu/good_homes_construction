@@ -55,16 +55,28 @@ class ApplicationController < ActionController::Base
   end
 
   def print_pdf 
-    pdf_render "#{this}", "application/print_pdf"
+    if this.to_s=='Invoice'
+      pdf_render "#{this}", "invoices/print_pdf"
+    else
+      pdf_render "#{this}", "application/print_pdf"
+    end
   end
 
   def pdf_render filename, template
-    render :pdf => filename,
-      :layout => template.include?('index') ? 'print_index_layout' : 'print_pdf',
-      :template => template,
-      :page_size => 'Letter',
-      :image_quality => 100,
-      :dpi => 300
+    if filename=='Invoice'
+      render :pdf => filename,
+          :template => template,
+          :page_size => 'Letter',
+          :image_quality => 100,
+          :dpi => 300
+    else
+      render :pdf => filename,
+        :layout => template.include?('index') ? 'print_index_layout' : 'print_pdf',
+        :template => template,
+        :page_size => 'Letter',
+        :image_quality => 100,
+        :dpi => 300
+    end
       # :margin => {:top => 10, :bottom => 10, :left => 0, :right => 10}
   end
 

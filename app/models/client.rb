@@ -12,6 +12,6 @@ class Client < ApplicationRecord
 	end
 
 	def relations
-		%w'projects quotes'
+		%w'projects quotes invoices'
 	end
 end

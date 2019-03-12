@@ -14,7 +14,7 @@
       <% this.all.order_desc.each do |e| %>
         <tr>
           <% table_col.each do |f| %>
-            <td><%= f=='hours' ? e.send(f) : sanitize(e.send(f)) %></td>
+            <td><%= f=='hours' ? e.send(f) : f=='invoice_pdf' ? "<a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf' class='btn btn-primary btn-sm'>Print Invoice</a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf'>".html_safe : sanitize(e.send(f)) %></td>
           <% end %>
           <td>
             <p>
@@ -33,7 +33,7 @@
       <% this_one.each do |one| %>
         <tr>
           <% table_col.each do |f| %>
-            <td><%= f=='hours' ? one.send(f) : sanitize(one.send(f)) %></td>
+            <td><%= f=='hours' ? one.send(f) : f=='invoice_pdf' ? "<a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf' class='btn btn-primary btn-sm'>Print Invoice</a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf'>".html_safe : sanitize(one.send(f)) %></td>
           <% end %>
           <td>
             <p>
@@ -47,7 +47,7 @@
       <h3 class='title'><%= this_one.class %></h3>
       <tr>
         <% table_col.each do |f| %>
-          <td><%= f=='hours' ? this_one.send(f) : sanitize(this_one.send(f)) %></td>
+          <td><%= f=='hours' ? this_one.send(f) : f=='invoice_pdf' ? "<a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf' class='btn btn-primary btn-sm'>Print Invoice</a href='/#{this.to_s.downcase.pluralize}/#{one.id}/print_pdf'>".html_safe : sanitize(this_one.send(f)) %></td>
         <% end %>
         <td>
           <p>

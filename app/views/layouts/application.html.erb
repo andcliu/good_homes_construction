@@ -10,7 +10,7 @@
   </head>
 
   <body>
-  	
+  	<div class='container-custom'>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			  <a class="navbar-brand" href="/"><span class='title'><%= business_name %></span></a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,12 +32,12 @@
 			</nav>
 
 
-			<div class='container-custom'>
+			
 				<span class="notice"><%= notice %></span>
 				<span class="alert"><%= alert %></span>
 		    <%= yield %>
-			</div>
-	
+			
+		</div>
   </body>
 
 </html>

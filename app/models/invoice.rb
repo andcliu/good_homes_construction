@@ -15,8 +15,5 @@ class Invoice < ApplicationRecord
   	self.create({amount_due:amount_due,due_date:Date.today,notes:notes,client_id:client_id,project_id:project_id,milestone_id:milestone_id})
   end
 
-  def invoice_pdf 
-  	"<button class='btn btn-primary btn-sm'>p</button>"
-  end
 
 end
